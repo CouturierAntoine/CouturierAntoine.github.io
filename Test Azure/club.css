@@ -1,0 +1,362 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: linear-gradient(135deg, #000000, #8b0000);
+    color: #e6e6e6;
+}
+
+header {
+    background-color: #1a1a1a;
+    padding: 20px;
+    text-align: center;
+    border-bottom: 2px solid #ffffff;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2rem;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 15px;
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #e6e6e6;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+nav ul li a:hover {
+    color: #00aaff;
+}
+
+.container {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+h2 {
+    font-size: 1.8rem;
+    border-bottom: 2px solid #b45cff;
+    padding-bottom: 5px;
+    margin-bottom: 20px;
+}
+
+/* Grille des clubs en forme de triangle */
+.clubs-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 25px;
+    transition: all 0.3s ease;
+}
+
+.clubs-grid button:nth-child(1) { grid-column: 1; }
+.clubs-grid button:nth-child(2) { grid-column: 3; } /* central */
+.clubs-grid button:nth-child(3) { grid-column: 5; }
+
+.clubs-grid button:nth-child(4) { grid-column: 2; } 
+.clubs-grid button:nth-child(5) { grid-column: 4; }
+
+/* Boutons carrés */
+.dropdown-btn {
+    width: 150px;
+    height: 150px;
+    border: none;
+    cursor: pointer;
+    border-radius: 12px;
+    font-weight: bold;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.3);
+    transition: all 0.3s ease;
+    position: relative; /* pour positionner le texte */
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background-size: cover; /* image rempli le bouton */
+    background-position: center;
+}
+
+.btn-text {
+    position: absolute;
+    color: white;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-shadow: 0 0 5px rgba(0,0,0,0.7);
+    pointer-events: none; /* pour que le texte n’empêche pas le clic */
+}
+
+/* Hover et actif */
+.dropdown-btn:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.5);
+    opacity: 1;
+}
+
+.dropdown-btn.active {
+    transform: translateY(0);
+    box-shadow: 0 3px 6px rgba(0,0,0,0.5);
+    opacity: 0.95;
+    transition: transform 0.3s ease;
+}
+
+.club1 { 
+    background-image: 
+        linear-gradient(135deg, rgba(148, 1, 1, 0.5), rgba(255, 14, 14, 0.5)), /* dégradé semi-transparent */
+        url('images/clubs_icon/BM.jpg');
+        background-size: cover;
+    background-position: center;
+}
+
+.club2 { 
+    background-image: 
+        linear-gradient(135deg, rgba(42,79,124,0.5), rgba(26,43,64,0.5)), 
+        url('images/clubs_icon/PXG.png');
+    background-size: cover;
+    background-position: center;
+}
+
+.club3 { 
+    background-image: 
+        linear-gradient(135deg, rgba(0,79,42,0.5), rgba(0,122,63,0.5)), 
+        url('images/clubs_icon/Ubers.webp');
+    background-size: cover;
+    background-position: center;
+}
+
+.club4 { 
+    background-image: 
+        linear-gradient(135deg, rgba(170, 136, 0, 0.5), rgba(221, 192, 0, 0.5)), 
+        url('images/clubs_icon/Barcha.webp');
+    background-size: cover;
+    background-position: center;
+}
+
+.club5 { 
+    background-image: 
+        linear-gradient(135deg, rgba(0, 153, 170, 0.5), rgba(0, 199, 221, 0.5)), 
+        url('images/clubs_icon/Manshine.png');
+    background-size: cover;
+    background-position: center;
+}
+
+#club-info {
+    max-width: 700px;
+    margin: 40px auto 0;
+    padding: 20px;
+    background: rgba(0,0,0,0.4);
+    border-radius: 10px;
+    color: white;
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: all 0.3s ease;
+}
+
+#club-info.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.clubs-container {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    margin-top: 20px;
+}
+
+.bastard-btn {
+    width: 200px;
+    padding: 15px;
+    border: none;
+    cursor: pointer;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border-radius: 12px;
+
+    background: linear-gradient(135deg, #ff4d4d, #b30000);
+    color: white;
+
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    transition: 0.3s;
+    position: relative;
+}
+
+.bastard-btn:hover {
+    transform: scale(1.05);
+    opacity: 0.9;
+}
+
+.pxg-btn {
+    width: 200px;
+    padding: 15px;
+    border: none;
+    cursor: pointer;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #2f3eff, #001b7b);
+    color: white;
+
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    transition: 0.3s;
+    position: relative;
+}
+
+.pxg-btn:hover {
+    transform: scale(1.05);
+    opacity: 0.9;
+}
+
+.ubers-btn {
+    width: 200px;
+    padding: 15px;
+    border: none;
+    cursor: pointer;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #6cff8b, #1e8b3c);
+    color: white;
+
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    transition: 0.3s;
+    position: relative;
+}
+
+.ubers-btn:hover {
+    transform: scale(1.05);
+    opacity: 0.9;
+}
+
+.barcha-btn {
+    width: 200px;
+    padding: 15px;
+    border: none;
+    cursor: pointer;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #ffe066, #d4a300);
+    color: white;
+
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    transition: 0.3s;
+    position: relative;
+}
+
+.barcha-btn:hover {
+    transform: scale(1.05);
+    opacity: 0.9;
+}
+
+.manshine-btn {
+    width: 200px;
+    padding: 15px;
+    border: none;
+    cursor: pointer;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border-radius: 12px;
+
+    background: linear-gradient(135deg, #7fd8ff, #1ca3e6);
+    color: white;
+
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    transition: 0.3s;
+    position: relative;
+}
+
+.manshine-btn:hover {
+    transform: scale(1.05);
+    opacity: 0.9;
+}
+
+.club-icon {
+    width: 80px;
+    height: 80px;
+    border-radius: 8px;
+    object-fit: cover;
+    pointer-events: none;
+}
+
+.dropdown-content {
+    display: none;
+    margin-top: 10px;
+    padding-left: 20px;
+    list-style: disc;
+}
+
+.dropdown-content ul {
+    list-style: square;
+    margin-top: 5px;
+}
+
+.ubers {
+    color: #88ff90;
+    text-decoration: none;
+}
+
+.barcha {
+    color: #f3ff88;
+    text-decoration: none;
+}
+
+.pxg {
+    color: #8898ff;
+    text-decoration: none;
+}
+
+.bastard {
+    color: #ff8888;
+    text-decoration: none;
+}
+
+.manshine {
+    color: #88ffff;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.CF {
+    color: #be00ff;
+}
+
+.LW {
+    color: #0089ff;
+}
+
+.RW {
+    color: #fff300;
+}
+
+.CM {
+    color: #0dc500;
+}
